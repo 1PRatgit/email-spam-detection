@@ -19,7 +19,18 @@ st.set_page_config(page_title="My Webpage", page_icon=":tada:",layout="wide")
 
 img=Image.open('about.jpg')
 
+st.write("##")
 
+st.markdown("""
+<div class="row">
+    <div class="col-md-12">
+        <div class="section-header text-center pb-5">
+            <h2>Statistical analysis</h2>
+            <p>Results obtained is represented in graphical form below by analysing output.</p>
+        </div>
+    </div>
+  </div>
+""",unsafe_allow_html=True)
 
 # Header
 
@@ -164,18 +175,7 @@ st.markdown("""
       </section>
 """,unsafe_allow_html=True)
 
-st.write("##")
 
-st.markdown("""
-<div class="row">
-    <div class="col-md-12">
-        <div class="section-header text-center pb-5">
-            <h2>Statistical analysis</h2>
-            <p>Results obtained is represented in graphical form below by analysing output.</p>
-        </div>
-    </div>
-  </div>
-""",unsafe_allow_html=True)
 
 
 st.write("##")
