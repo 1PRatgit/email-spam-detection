@@ -5,6 +5,7 @@ import pickle
 import string
 from nltk.corpus import stopwords
 import nltk
+nltk.download('punkt')
 from nltk.stem.porter import PorterStemmer
 import numpy as np
 # from streamlit-lottie import st_lottie
@@ -18,18 +19,33 @@ ps = PorterStemmer()
 st.set_page_config(page_title="My Webpage", page_icon=":tada:",layout="wide")
 
 img=Image.open('about.jpg')
-
-st.write("##")
+st.title("Email Spam Classifier")
 
 st.markdown("""
-<div class="row">
-    <div class="col-md-12">
-        <div class="section-header text-center pb-5">
-            <h2>Statistical analysis</h2>
-            <p>Results obtained is represented in graphical form below by analysing output.</p>
-        </div>
-    </div>
-  </div>
+<section id="about" class="about section-padding">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-4 col-md-12 col-12">
+                      <div class="about-img">
+                          <img style="    max-width: 100%;
+    height: auto;" src="
+                          https://th.bing.com/th/id/OIP.8RILByfFkREQ3yb31022DwHaE8?w=226&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7
+                          " alt="" class="img-fluid">
+                      </div>
+                  </div>
+                  <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+                      <div class="about-text">
+                            <h2>What is it? <br/> Why we need it?</h2>
+                            <p>Spam filters detect unsolicited, unwanted, and virus-infested email (called spam) and stop 
+                            it from getting into email inboxes.
+                             Email is a popular attack vector for hackers and other malicious actors seeking to infect computers with malware. An attacker may send an email with an attachment that looks like an innocent image. However, hidden within the code of the file 
+                             could be a virus that is only executable when the recipient clicks on the file’s link. </p>
+                            <a href="https://cleantalk.org/spam-stats" class="btn btn-warning">Learn More</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
 """,unsafe_allow_html=True)
 
 # Header
@@ -73,7 +89,7 @@ def transform_text(text):
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
 model = pickle.load(open('model.pkl','rb'))
 
-st.title("Email Spam Classifier")
+st.title("Check for Email Spam Classifier")
 
 input_sms = st.text_area("Enter the email")
 
@@ -148,35 +164,21 @@ st.image(img)
 st.write("##")
 st.write("##")
 
+
+
+
+st.write("##")
+
 st.markdown("""
-<section id="about" class="about section-padding">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-4 col-md-12 col-12">
-                      <div class="about-img">
-                          <img style="    max-width: 100%;
-    height: auto;" src="
-                          https://th.bing.com/th/id/OIP.8RILByfFkREQ3yb31022DwHaE8?w=226&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7
-                          " alt="" class="img-fluid">
-                      </div>
-                  </div>
-                  <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
-                      <div class="about-text">
-                            <h2>What is it? <br/> Why we need it?</h2>
-                            <p>Spam filters detect unsolicited, unwanted, and virus-infested email (called spam) and stop 
-                            it from getting into email inboxes.
-                             Email is a popular attack vector for hackers and other malicious actors seeking to infect computers with malware. An attacker may send an email with an attachment that looks like an innocent image. However, hidden within the code of the file 
-                             could be a virus that is only executable when the recipient clicks on the file’s link. </p>
-                            <a href="https://cleantalk.org/spam-stats" class="btn btn-warning">Learn More</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
+<div class="row">
+    <div class="col-md-12">
+        <div class="section-header text-center pb-5">
+            <h2>Statistical analysis</h2>
+            <p>Results obtained is represented in graphical form below by analysing output.</p>
+        </div>
+    </div>
+  </div>
 """,unsafe_allow_html=True)
-
-
-
 
 st.write("##")
 
